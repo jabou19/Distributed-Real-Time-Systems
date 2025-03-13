@@ -49,7 +49,7 @@ public class Simulator {
             }
         }
 
-        // 输出结果
+        // output results
         for (Task task : tasks) {
             System.out.println("Task " + task.name + " WCRT: " + worstCaseResponseTime.getOrDefault(task, 0));
         }

@@ -15,11 +15,12 @@ public class TaskLoader {
             if (parts.length != 6) continue;
 
             String name = parts[0];
-            int wcet = Integer.parseInt(parts[1]);
-            int bcet = Integer.parseInt(parts[2]);
+            int wcet = Integer.parseInt(parts[2]);
+            int bcet = Integer.parseInt(parts[1]);
             int period = Integer.parseInt(parts[3]);
+            int deadline = Integer.parseInt(parts[4]);
 
-            tasks.add(new Task(name, period, bcet, wcet));
+            tasks.add(new Task(name, period, bcet, wcet,deadline));
         }
         br.close();
         return tasks;
