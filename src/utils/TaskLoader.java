@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.*;
 
 public class TaskLoader {
+    // loadTasks method reads the tasks from the file and returns a list of tasks
     public static List<Task> loadTasks(String filename) throws IOException {
         List<Task> tasks = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(filename));

@@ -8,24 +8,31 @@ import java.util.*;
 public class Simulator {
     private List<Task> tasks;
     private PriorityQueue<Job> readyQueue;
-    private int simulationTime;
+    private int simulationTime; // Simulation time for all tasks
     private Map<Task, Integer> worstCaseResponseTime;
+    private Map<Task, Integer> nextReleaseTime;
 
     public Simulator(List<Task> tasks, int simulationTime) {
         this.tasks = tasks;
         this.simulationTime = simulationTime;
-        this.readyQueue = new PriorityQueue<>();
+        this.readyQueue = new PriorityQueue<>(Comparator.comparingInt(j -> j.task.period));
         this.worstCaseResponseTime = new HashMap<>();
+        this.nextReleaseTime = new HashMap<>();
+        for (Task task : tasks) {
+            nextReleaseTime.put(task, task.period);
+        }
     }
 
     public void run() {
         int currentTime = 0;
+        tasks.sort(Comparator.comparingInt(t -> t.period));
         while (currentTime <= simulationTime) {
-            // Release a new task
+            // Release new tasks at their respective periods
             for (Task task : tasks) {
-                if (currentTime % task.period == 0) {
+                if (currentTime == nextReleaseTime.get(task)) {
                     Job newJob = new Job(task, currentTime);
                     readyQueue.add(newJob);
+                    nextReleaseTime.put(task, currentTime + task.period);
                 }
             }
 
@@ -49,9 +56,10 @@ public class Simulator {
             }
         }
 
-        // output results
+        // Output results
+        System.out.println("Simulation results for task ");
         for (Task task : tasks) {
-            System.out.println("Task " + task.name + " WCRT: " + worstCaseResponseTime.getOrDefault(task, 0));
+            System.out.println("Task name " + task.name + " RT: " + worstCaseResponseTime.getOrDefault(task, 0) + " deadline: " + task.deadline);
         }
     }
 }

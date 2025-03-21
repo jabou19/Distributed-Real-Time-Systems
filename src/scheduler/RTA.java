@@ -4,7 +4,7 @@ import model.Job;
 import model.Task;
 
 import java.util.*;
-
+// RTA is a class that performs Response Time Analysis on a set of tasks.
 public class RTA {
     public List<Task> tasks;
 
@@ -21,20 +21,27 @@ public class RTA {
             int I = 0;  // initial the I
 
             // perform iterative calculation until the response time no longer changes
+            // TODO:  is the worst case execution time the same computation time? Ci = WCET
             while (true) {
                 int R = I + task.wcet;  // current task's response time R = I + Ci
 
                 // check if it exceeds the deadline
+                // TODO: Di is relative deadline? or absolute deadline?
                 if (R > task.deadline) {
                     System.out.println("UNSCHEDULABLE");
                     return false;
                 }
 
-                // calculate new I
+                // TODO calculate new I Computing Interference
                 int newI = 0;
-                for (int i = 0; i < tasks.indexOf(task); i++) {
+                /*for (int i = 0; i < tasks.indexOf(task); i++) {
                     Task higherPriorityTask = tasks.get(i);
                     newI += Math.ceil((double) R / higherPriorityTask.period) * higherPriorityTask.wcet;
+                }*/
+                for (Task higherPriorityTask : tasks) {
+                    if (higherPriorityTask.period < task.period) {
+                        newI += Math.ceil((double) R / higherPriorityTask.period) * higherPriorityTask.wcet;
+                    }
                 }
 
                 // if I not change, stop iterative
@@ -46,6 +53,10 @@ public class RTA {
             }
         }
         System.out.println("SCHEDULABLE");
+        System.out.println("RTA results for task ");
+        for (Task task : tasks) {
+            System.out.println("Task name: " + task.name + " WCRT: " + task.wcrt + " deadline: " + task.deadline);
+        }
         return true;
     }
 }
