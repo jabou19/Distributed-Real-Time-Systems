@@ -8,14 +8,16 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        List<Task> tasks = TaskLoader.loadTasks("files/schedulable/Full_Utilization_Unique_Periods_taskset.csv");
-//        int simulationTime = 100; // Set the simulation for 100 time units.
-//        Simulator simulator = new Simulator(tasks, simulationTime);
-//        simulator.run();
+        List<Task> tasks = TaskLoader.loadTasks("files/exercise-TC3 - Copy.csv");
+        int simulationTime = 10000; // Set the simulation for 100 time units.
+        Simulator simulator = new Simulator(tasks, simulationTime);
+        simulator.run();
         RTA rta = new RTA(tasks);
+
+        System.out.println("\n===(RTA) Worst Case Response Times ===");
         rta.RTAAnalysis();
         for (Task task : tasks) {
-            System.out.println(task.wcrt + task.name);
+            System.out.println("Task " + task.name + " WCRT: "+  task.wcrt);
         }
     }
 }
