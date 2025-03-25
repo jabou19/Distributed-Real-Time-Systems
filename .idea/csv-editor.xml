@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\files\exercise-TC3 - Copy.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\files\schedulable\Full_Utilization_NonUnique_Periods_taskset.csv">
           <value>
             <Attribute>
