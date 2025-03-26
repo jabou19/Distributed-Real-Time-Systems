@@ -13,3 +13,7 @@ The files in the [Exerercise](files/Exercise/02225_Exercise.pdf) Content tab are
     - Priority: Task priority (assigned by Rate Monotonic scheduling, with lower period yielding higher priority)
 
 * These examples illustrate one possible format. Students may use a different format and create additional test cases.
+
+## Running the Application
+     for running the application from Main class.
+
