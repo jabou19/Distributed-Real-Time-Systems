@@ -21,18 +21,14 @@ public class RTA {
             int I = 0;  // initial the I
 
             // perform iterative calculation until the response time no longer changes
-            // TODO:  is the worst case execution time the same computation time? Ci = WCET
             while (true) {
                 int R = I + task.wcet;  // current task's response time R = I + Ci
 
                 // check if it exceeds the deadline
-                // TODO: Di is relative deadline? or absolute deadline?
                 if (R > task.deadline) {
                     System.out.println("UNSCHEDULABLE");
                     return false;
                 }
-
-                // TODO calculate new I Computing Interference
                 int newI = 0;
                 /*for (int i = 0; i < tasks.indexOf(task); i++) {
                     Task higherPriorityTask = tasks.get(i);
