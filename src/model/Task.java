@@ -3,12 +3,12 @@ package model;
 import java.util.Objects;
 
 public class Task {
-    public String name;
-    public int period;
-    public int bcet;
-    public int wcet;
-    public int deadline;
-    public double wcrt;
+    public String name; // Task name
+    public int period; // Task period
+    public int bcet; // Task best-case execution time
+    public int wcet; // Task worst-case execution time
+    public int deadline; // Task deadline
+    public double wcrt; // Task worst-case response time
 
     public Task(String name, int period, int bcet, int wcet, int deadline) {
         this.name = name;

@@ -61,8 +61,8 @@ import java.util.*;
 import java.util.*;
 
 public class Simulator {
-    private List<Task> tasks;
-    private List<Job> readyQueue;
+    private List<Task> tasks; // List of tasks
+    private List<Job> readyQueue; // Ready queue
     private int simulationTime;
     private Map<Task, Integer> worstCaseResponseTime;
 

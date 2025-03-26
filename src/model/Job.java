@@ -3,8 +3,8 @@ package model;
 import java.util.Random;
 
 public class Job implements Comparable<Job> {
-    public Task task;
-    public int releaseTime;
+    public Task task; // Task that the job belongs to
+    public int releaseTime; // Time when the job is released
     public int executionTime;
     public int priority;
 
