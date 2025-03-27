@@ -2,8 +2,8 @@
 
 This Java project is part of the **02225 Distributed Real-Time Systems (DRTS)** course exercise. It includes two core components:
 
-- ✅ **Very Simple Simulator (VSS)**: A simple fixed-priority preemptive scheduler simulator.
-- ✅ **Response-Time Analysis (RTA)**: A schedulability analysis tool based on response-time bounds.
+-  **Very Simple Simulator (VSS)**: A simple fixed-priority preemptive scheduler simulator.
+-  **Response-Time Analysis (RTA)**: A schedulability analysis tool based on response-time bounds.
 
 ---
 
@@ -33,7 +33,7 @@ These examples illustrate one possible format. You are free to use different for
 
 ---
 
-## ✅ Features
+##  Features
 
 ### Very Simple Simulator (VSS)
 - Implements **fixed-priority preemptive scheduling**.
